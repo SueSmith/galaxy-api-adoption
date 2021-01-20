@@ -111,10 +111,7 @@ app.get("/", (req, res) => {
         intro:
           "Use the " +
           process.env.PROJECT +
-          " template in Postman to learn API Adoption! Import the collection in Postman by clicking " +
-          "New > Templates, and searching for '" +
-          process.env.PROJECT +
-          "'. Open the first request in the collection and click Send. " +
+          " template in Postman to learn API Adoption! " +
           "To see the API code navigate to https://glitch.com/edit/#!/" +
           process.env.PROJECT_DOMAIN +
           " in your web browser!"
@@ -182,16 +179,16 @@ app.get("/begin", (req, res) => {
     tutorial: {
       title: "Welcome to " + process.env.PROJECT + " training! 🛰️📣",
       intro:
-        "This demo API will help us learn how to build adoption for our APIs using Postman. We'll learn about " +
-        "crafting documentation for an API, using mock data, visualizing request responses, and promoting the API by " +
-        "publishing the collection and workspace within Postman's network. This will allow your users to onboard " +
+        "This demo API will help you learn how to build adoption for an API using Postman. We'll learn about " +
+        "crafting documentation, using mock data, visualizing request responses, and promoting the API by " +
+        "publishing the collection and workspace. This will allow your users to onboard " +
         "faster, importing functional requests straight into Postman along with supporting resources.",
       steps: [
         {
           note:
             "This API provides a few demo endpoints that return random data generated using the faker library " +
             "(which we can also use in Postman as you will see later). _You are welcome to continue playing around with all of the requests " +
-            "after the session–and feel free to remix the API on Glitch too._ 😄"
+            "after the session–and feel free to remix the API on Glitch too galaxy-api-adoption.glitch.me._ 😄"
         },
         {
           note:
@@ -202,7 +199,7 @@ app.get("/begin", (req, res) => {
         },
         {
           note:
-            "> ✏️ Each request in the API is going to return some core data and the tutorial data you can access in the Visualizer to help you " +
+            "> ✏️ Each request in the API is going to return some core data and the tutorial data you can access in the Visualizer to " +
             "work through next steps. You will be switching between different views, so whenever you want to get back to the " +
             "instructions, select the request on the left and choose **Body** &gt; **Visualize**. "
         }
@@ -216,17 +213,17 @@ app.get("/begin", (req, res) => {
         },
         {
           step:
-            "Postman will automatically populate your docs with request methods / names, parameters, body data, auth info, and a few more details. " +
-            "You can add lots of additional information to help users understand the purpose of your API endpoints and get started using them. " +
-            "You can edit the details in the documentation view or within the individual requests / collection tabs. _Use the little " +
-            "docs button on the right to show / hide the docs as we work through the requests._"
+            "Postman will automatically populate your docs with request **methods**, **names**, **parameters**, **body data**, **auth info**"+
+            ", and more. You can add lots of additional information to help users understand the purpose of your API endpoints and get "+
+            "started using them. You can edit the details in the documentation view or within the individual requests / collection tabs. "+
+            "_Use the little docs button on the right to show / hide the docs as we work through the requests._"
         },
         {
           step:
             "> ✏️ Notice that the address for this request starts with a base URL which is stored in a variable that you " +
-            "imported as part of the collection. Hover over the var indicated by `{{url}}` in the address to see the value. You can use variables " +
-            "to reuse values throughout your collections and they will resolve in your documentation–you can also publish environments along with " +
-            "your docs and let viewers switch between them."
+            "imported as part of the collection. Hover over the var indicated by `{{url}}` in the address to see the value. Variables " +
+            "let you reuse values throughout your collections and they will resolve in your documentation–you can also publish environments "+
+            "with your docs and let viewers switch between them."
         },
         {
           step: "Open the next request `Get item` and hit **Send**."
@@ -275,7 +272,7 @@ app.get("/record", (req, res) => {
           },
           {
             note:
-              "With the documentation for the request open on the right, you'll see that you can add a description for the request. " +
+              "#### Add descriptions\n\nWith the documentation for the request open on the right, you'll see that you can add a description for the request. " +
               "Click the text-area with 'Make things easier...' etc in it and enter a request description. You can use markdown, for example:",
             js_code: [
               "Retrieve a single customer.",
@@ -287,11 +284,11 @@ app.get("/record", (req, res) => {
           {
             note:
               "You can **Preview** to see the rendered markdown at any time. **Save** your description. Before you move on, also save the response, choosing **Save Response** " +
-              "&gt; **Save as example**–and rename the example to `Get customer` also then return here."
+              "&gt; **Save as example**–and rename the example to `Get customer` also then return here and **Send** again."
           },
           {
             note:
-              "To make the response example a little more interesting, we can use the dynamic faker variables to generate random values " +
+              "#### Dynamic examples\n\nTo make the response a little more interesting, we can use dynamic faker variables to generate random values " +
               "whenever the example is generated. Back in the `Get customer` example, replace the value of the `data` &gt; `phrase` property with " +
               '`{{$randomCatchPhrase}}` so that it looks like this: `phrase: "{{$randomCatchPhrase}}",`'
           },
@@ -304,7 +301,7 @@ app.get("/record", (req, res) => {
           },
           {
             note:
-              "You can add links and images to your markdown. To try out an image, grab the URL for the `pic` property in " +
+              "#### Markdown elements\n\nYou can add links and images to your markdown. To try out an image, grab the URL for the `pic` property in " +
               "the response JSON and include it in your request docs markdown using the following syntax, saving to see the rendered image:",
             js_code: ["![pic](http://placeimg.com/640/480/nightlife)"]
           },
@@ -316,16 +313,16 @@ app.get("/record", (req, res) => {
         next: [
           {
             step:
-              "You added request level documentation, but you can also add information at collection level. Providing a strong intro to your " +
-              "collection will give your users the best chance to know how to get started, including universal info such as auth requirements, "+
-              "and example uses cases / workflows. Click the **Galaxy API Adoption** collection on the left and open its docs on the right. "+
-              "Add a description there too like you did for the request, then come back to `Get customer`."
+              "You added request documentation, but you can also add information at collection level. _Providing a strong intro to your " +
+              "collection will give your users the best chance of getting started, including universal info such as auth requirements, "+
+              "and example uses cases / workflows._ Click the **Galaxy API Adoption** collection on the left and open its docs on the right. "+
+              "Edit the description there too like you did for the request, then come back to `Get customer`."
           },
           {
             step:
               "You can use collections to share information about your APIs in a variety of ways as we'll see in this session. To see a " +
               "preview of what your docs will look like if someone views them on the web outside Postman, **View complete collection " +
-              "documentation**, click **Publish** &gt; **Preview documentation** then navigate back here."
+              "documentation**, click **Publish** &gt; **Preview documentation** then navigate back here to `Get customer` using the browser back button."
           },
           {
             step: "Open the next request `POST` `Add item` and hit **Send**."
@@ -354,8 +351,8 @@ app.get("/record", (req, res) => {
             note:
               "Your docs can include example request and response data. The easiest way to create an example is to save a response–so let's " +
               "do that. Postman will autopopulate the example with the response you received, including the parameters sent, status code, "+
-              "and any body data recieved. Just above the response area click **Save Response** and choose **Save as example**. You can edit "+
-              "the example, which we'll do soon, but for now **Save** the example."
+              "and body data. Just above the response area click **Save Response** and choose **Save as example**. You can edit "+
+              "the example, which we'll do soon, but for now just **Save** it, return here, and send again."
           },
           {
             note:
@@ -377,8 +374,8 @@ app.get("/record", (req, res) => {
           },
           {
             step:
-              "Being able to share your collection (and workspace) lets you provide users with the ability to send prebuilt requests " +
-              "that they access alongside information you author (also inside Postman). With the query parameter added and your request " +
+              "Being able to share your collection (and workspace) lets you provide users with prebuilt requests " +
+              "they can send alongside information you author (also inside Postman). With the query parameter added and your request " +
               "saved, click **Send**."
           }
         ]
@@ -420,7 +417,7 @@ app.get("/records", (req, res) => {
           note:
             "> ✏️ Postman variable scope means that if the environment and collection have a variable with the same name, the value in " +
             "the environment will override the collection value, so we're going to add a `url` var to the environment and it will determine " +
-            "where the requests send as long as the environment is selected. If we deselect the environment, the request addresses will " +
+            "where the requests send–as long as the environment is selected. If we deselect the environment, the request addresses will " +
             "again use the collection variable URL value."
         }
       ],
@@ -434,9 +431,12 @@ app.get("/records", (req, res) => {
         {
           step:
             "Select the new environment from the list at the top right of Postman so that it becomes the _active_ environment (it will have "+
-            "the same name as the mock. Click " +
+            "the same name as the mock). Click " +
             "the eye button to see that the value of the variable has been set to the new mock server. In the `Get list` request hover over " +
-            "the `url` in the address to see that it now points at the mock. **Send** to make sure the request returns the same " +
+            "the `url` in the address to see that it now points at the mock."
+        },
+        {
+          step: "**Send** to make sure the request returns the same " +
             "response. Try out another request you added an example to, to check that it still works from the mock URL."
         },
         {
@@ -446,8 +446,8 @@ app.get("/records", (req, res) => {
         },
         {
           step:
-            "Before we finish with this collection, let's take a look at what you can do with data visualization in Postman. The " +
-            "instructions you've been reading use a script in the collection that renders a tutorial in the **Visualize** view based on the "+
+            "#### Visualizing data\n\nBefore we finish with this collection, let's take a look at what you can do with data visualization in Postman. The " +
+            "instructions you've been reading use a script in the collection that renders a tutorial in the **Visualize** view, based on the "+
             "response data returned by the API. You can do much more than this to make your response data come to life, including charts and "+
             "graphs. 🖼️📊"
         },
@@ -472,7 +472,7 @@ app.get("/records", (req, res) => {
         {
           step:
             "When you're happy you've completed all the steps and are ready to check your collection for completeness so that you can "+
-            "claim your API Adoption badge–open the final request `Test collection`, in the `Check progress` folder and check out the docs "+
+            "claim your API Adoption badge–open the final request `Test collection`, in the `Complete submission` folder and check out the docs "+
             "for instructions."
         }
       ]
@@ -527,11 +527,8 @@ app.post("/record", (req, res) => {
         next: [
           {
             step:
-              "n the `POST` `Add item` request, open **Authorization** and select **Inherit auth from parent**–this will use the collection level " +
-              "auth settings. Open the complete collection documentation and scroll to the top to see how the auth info is represented–it uses "+
-              "the var value. If " +
-              "you deselect the environment, the auth key value will revert to a variable reference, which prompts the collection consumer " +
-              "to supply their own key value. 🔑"
+              "In the `POST` `Add item` request, open **Authorization** and select **Inherit auth from parent**–this will use the collection level " +
+              "auth settings. Open the complete collection documentation and scroll to the top to see how the auth info is represented. 🔑"
           },
           {
             step:
@@ -598,6 +595,21 @@ app.post("/record", (req, res) => {
               "When your users are viewing the collection docs on the web inside a Postman workspace, they can also click **Open Request** to go straight " +
               "to a request from the docs description. You can send people links to all of these components inside a workspace and know that the " +
               "viewer will arrive at whatever resource you want to share."
+          },
+          {
+            note:
+              "Let's make the body data a little more dynamic using faker variables. Replace the value of the `id` property with `{{$randomLoremWord}}`"+
+              " and the value of `phrase` with `{{$randomCatchPhrase}}` so that it looks something like this:",
+            raw_data: {
+              id: "{{$randomLoremWord}}",
+              phrase: "{{$randomCatchPhrase}}",
+              pic: "http://placeimg.com/640/480/cats",
+              num: 10
+            }
+          },
+          {
+            note: 
+              "Postman will generate these each time the docs are viewed or the request is sent."
           }
         ],
         next: [
@@ -710,17 +722,16 @@ app.put("/record", function(req, res) {
         steps: [
           {
             note:
-              "You can share collections with your users in multiple ways–by publishing documentation or including a **Run in Postman** " +
-              "button on your site, by publishing to the Postman templates / API network, or by creating a public workspace. Your users can "+
-              "import collections by hitting the **Run in Postman** button that appears in your docs, site, or network listing. With a "+
-              "collection published to the Postman network you can see the number of views and imports into Postman within your listing."
+              "You can share collections with your users in multiple ways–by publishing documentation / including a **Run in Postman** " +
+              "button on your site, publishing a template, or sharing from a public workspace. Your users can "+
+              "import collections from the button in your docs / site, or by forking from a workspace like you did at "+
+              "the start of the session."
           },
           {
             note:
-              "When you share a collection in a public workspace, this lets users see your collections, requests, environments, and more " +
-              "in context inside Postman–and you can link to all of these entities for users to open in the browser. In order to use a " +
-              "collection from a workspace, your audience will fork it into their own workspace where they can send requests as well as "+
-              "editing them."
+              "When you create a public workspace, users can see collections, requests, environments, and more " +
+              "in context inside Postman–and you can create links to all of these. In order to use a " +
+              "collection from a workspace, your audience will fork it into their own workspace where they can edit and send requests."
           },
           {
             note:
@@ -796,12 +807,12 @@ app.delete("/record/:id", function(req, res) {
           {
             note:
               "So far we have looked at how you can provide information to help your users onboard with your APIs, however you can also " +
-              "share collections and documentation privately with your team members by sharing to workspaces inside Postman. This way workspace " +
-              "members can see your collections together with the documentation, or can view docs from a web link."
+              "share collections and documentation privately with collaborators using team workspaces. Members can see your collections "+
+              "together with their documentation, or can view docs from a web link."
           },
           {
             note:
-              "Next up we are going to look at how you can use mock servers to return fake data instead of letting users hit your " +
+              "Next up we are going to use mock servers to return fake data instead of letting users hit a " +
               "production API, and see some data visualizations on request responses."
           }
         ],
@@ -817,6 +828,47 @@ app.delete("/record/:id", function(req, res) {
       }
     });
   }
+});
+
+app.get("/publish", (req, res) => {
+  res.status(200).json({
+      welcome: welcomeMsg,
+      tutorial: {
+        title: "Publish your workspace! 📣",
+        intro:
+          "Finally, we are going to walk through publishing your workspace and updating your Postman profile. ✨",
+        data: {
+          message: "Publish workspace and profile"
+        },
+        steps: [
+          {
+            note:
+              "In order to publish your completed template, you'll need to first make your Postman profile public (if it isn't already). "+
+              "Click your avatar at the top right of Postman and choose **View Profile**. Click **Edit Profile** and switch **Make Profile "+
+              "Public** on if it is currently off. Add details including any images and links you want to be visible to your audience. "+
+              "**Save** and return to your workspace."
+          }
+        ],
+        next: [
+          {
+            step:
+              "Now that your profile is public, you can go ahead and publish the workspace containing your training template! Click the name of "+
+              "the workspace at the top left of Postman to open the workspace overview. You can add a summary and description. "+
+              "When you're ready, use the **Sharing** &gt; **Visibility** control on the right to switch the workspace to **Public**!"
+          },
+          {
+            step:
+              "> ✏️ Your account admin can set your Postman workspaces to require approval before publishing–with the community manager role."
+          },
+          {
+            step: "Open the final request in the collection `Test collection` and pop the URL for your collection in as the address (select your "+
+              "collection, choose **Share** &gt; **Get public link** and generate or update it, then copy and paste into the `Test collection`"+
+              " address). Add the URL for your public workspace as the `workspace` value in **Headers** (you can just copy it from the browser address"+
+              " bar) and hit **Send** to check your collection for completeness, before filling out the form to get your badge and swag!"
+          }
+        ]
+      }
+    });
 });
 
 //ADMIN ENDPOINTS
