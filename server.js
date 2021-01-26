@@ -2,7 +2,7 @@
 POSTMAN GALAXY API ADOPTION
 
 This API works in conjunction with the Postman Galaxy API Adoption collection in Postman to walk you through API adoption skills.
-Import the collection into Postman and send a request to the setup endpoint to begin.
+Import the collection into Postman from the workspace shared during the session and send a request to the setup endpoint to begin.
 
 
 This Glitch app is based on hello-express and low-db.
@@ -111,7 +111,7 @@ app.get("/", (req, res) => {
         intro:
           "Use the " +
           process.env.PROJECT +
-          " template in Postman to learn API Adoption! " +
+          " collection in Postman to learn API Adoption! " +
           "To see the API code navigate to https://glitch.com/edit/#!/" +
           process.env.PROJECT_DOMAIN +
           " in your web browser!"
@@ -329,7 +329,7 @@ app.get("/record", (req, res) => {
           }
         ]
       }
-    }); //TODO update preview in web flow
+    }); 
   } else {
     res.status(404).json({
       welcome: welcomeMsg,
@@ -491,7 +491,6 @@ app.post("/record", (req, res) => {
       what: apiSecret
     })
     .write();
-  console.log(apiSecret);
   if (!apiSecret || apiSecret.length < 1 || apiSecret.startsWith("{")) {
     res.status(401).json({
       welcome: welcomeMsg,
